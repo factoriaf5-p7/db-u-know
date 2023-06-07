@@ -1,9 +1,13 @@
 ### 1 user can sign up into the system
 ```sql
-INSERT INTO user values(
-    name,
+INSERT INTO user(name,
     email,
-    password
+    password,
+    balance) values(
+    <NAME>,
+    <EMAIL>,
+    <PASSWORD>,
+    100
 )
 ```
 ### 1 register user (RU) can log in the system
@@ -37,8 +41,10 @@ if (balance >= price){
         <CONTENT_ID>,
     )
     SELECT * FROM content where id = <CONTENT_ID>
+    SELECT comment from user_content where id = <CONTENT_ID>
 ```
 ```js
+    // group comments to send with the selected content
 } else {
     //message to the USER >> NO BALANCE AVAILABLE. YOU SHOULD CREATE CONTENT TO PURCHASE CONTENT
 }
@@ -54,6 +60,13 @@ INSERT INTO content values(
     content
     author_id
 )
+```
+```js
+//coding section
+   balanceVariable = balance+100
+```
+```sql
+UPDATE user set balance = balanceVariable WHERE user_id =<USER_ID>
 ```
 
 ### 1 RU can edit content
@@ -110,12 +123,28 @@ if(rates.length >= 5){
         contentPrice -= 20%
 ```
 ```sql
-        UPDATE content SET price = contentPrice
+    UPDATE content SET price = contentPrice
 ```
 ```js
 } else {
-    rates.map(e => e.user_rating = 4.8 ).reduce((ac, e,i,a)=> ac += e.user_rating/a.length)
+    const avg = rates.map(e => e.user_rating = 4.8 ).reduce((ac, e,i,a)=> ac += e.user_rating/a.length)
+```
+```sql
+    UPDATE content SET rating = avg
+```
+```js
 }
 ```
+### 1 RU can comment a purchased content
+```sql
+UPDATE user_content set user_comment=<COMMENT_TEXT> where user_id =<USER_ID> AND content_id=<CONTENT_ID>
+```
 
+### 1 RU can chat with a content author.
+```js
+// send a message to the author asking for chat
+// 1. check if the author is available
+// 2a. open chat and stablish communication
+// 2b. if author is unavailable the app will set a notification
+```
 

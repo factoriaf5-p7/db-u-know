@@ -22,9 +22,7 @@ Queremos crear U-KNOW, la nueva plataforma de intercambio de conocimientos y apr
 - Si una usuaria se queda sin knowlitos se le propondrá generar contenido para recuperar saldo.
 - Desde una ficha de contenido se puede abrir el chat para establecer comunicación con el autor del contenido y pedir aclaraciones.
 
-En U-KNOW podemos acceder libremente a la página principal que mostrará una galería con los contenidos más votados y solicitados. Esta galería queremos que tenga una cierta animación cuando pasamos el mouse por encima.
-Cuando intentamos acceder a una tarjeta de la galería la aplicación nos preguntará si queremos registrarnos para poder ver el contenido.
-Al registrarnos conseguimos un bono de 100 knowlitos que podemos gastar en obtener los contenidos que queramos.
+
 
 
 
